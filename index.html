@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Mainpage</title>
+    <link rel="stylesheet" href="./src/styles/main.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="profile-panel" aria-label="个人主页">
+        <p class="eyebrow">Personal Space</p>
+        <h1 id="site-title"></h1>
+        <p id="site-subtitle" class="subtitle"></p>
+        <div id="site-links" class="link-row" aria-label="站点链接"></div>
+      </section>
+
+      <section class="companion-panel" aria-label="Live2D 角色">
+        <canvas id="live2d-canvas" aria-label="Live2D 模型画布"></canvas>
+        <div id="assistant-bubble" class="assistant-bubble" aria-live="polite"></div>
+        <p id="live2d-status" class="status-text"></p>
+      </section>
+    </main>
+
+    <footer id="site-footer" class="site-footer"></footer>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
