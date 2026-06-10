@@ -9,11 +9,11 @@
 - Add a random dialogue provider that can later be replaced by an AI provider.
 - Add a footer attribution block for the active model.
 - Add Docker Compose based static serving for local debugging.
+- Document the current architecture and runtime flow.
 
 ## Next implementation tasks
 
 - Verify the Live2D runtime through `docker compose up --build`.
 - Tune Hiyori scale and position after visual inspection.
-- Replace placeholder profile links in `src/config/site.config.js`.
 - Add an AI provider behind the same assistant interface.
 - Keep debugging and preview commands containerized.
