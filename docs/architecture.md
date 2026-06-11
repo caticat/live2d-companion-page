@@ -154,6 +154,12 @@ dispatch workflow that uses the `PAGES_DEPLOY_TOKEN` secret for immediate
 deployment after a push. Without that secret, the scheduled deployment remains
 the fallback.
 
+The legacy Hexo project remains on the `source` branch of
+`caticat/caticat.github.io` as an archive. Its old configuration contains
+legacy third-party service credentials in repository history. Those credentials
+must be rotated or revoked before the branch is reused, shared, or permanently
+archived.
+
 ## Asset Policy
 
 The original downloaded zip is not used at runtime and is ignored by `.gitignore`.
