@@ -26,3 +26,20 @@ docker compose down
 
 - [Architecture](docs/architecture.md)
 - [Task checklist](docs/tasks.md)
+
+## GitHub Pages
+
+The source of truth is this repository. The `caticat/caticat.github.io`
+repository contains the GitHub Pages workflow and publishes these directories:
+
+```text
+index.html
+src/
+public/
+docs/
+```
+
+The Pages repository checks for source updates every hour and also supports
+manual deployment. For immediate deployment after each push, add a fine-grained
+`PAGES_DEPLOY_TOKEN` repository secret with access to dispatch workflows in
+`caticat/caticat.github.io`.

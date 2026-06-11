@@ -137,6 +137,23 @@ A backend or serverless function becomes useful when:
 
 Until then, the project stays static and is served by the Nginx container.
 
+## Deployment
+
+The two repositories have separate responsibilities:
+
+- `caticat/live2d-companion-page`: source code, model assets, documentation, and Docker-based local preview.
+- `caticat/caticat.github.io`: GitHub Pages deployment controller.
+
+The Pages workflow checks out the source repository and publishes only
+`index.html`, `src/`, `public/`, and `docs/`. Docker and Nginx files are not part
+of the GitHub Pages artifact.
+
+The deployment workflow can be started manually, by a repository dispatch
+event, or by its hourly schedule. The source repository includes an optional
+dispatch workflow that uses the `PAGES_DEPLOY_TOKEN` secret for immediate
+deployment after a push. Without that secret, the scheduled deployment remains
+the fallback.
+
 ## Asset Policy
 
 The original downloaded zip is not used at runtime and is ignored by `.gitignore`.

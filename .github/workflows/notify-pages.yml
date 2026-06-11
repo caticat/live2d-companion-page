@@ -1,0 +1,30 @@
+name: Notify GitHub Pages deployment
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    env:
+      PAGES_DEPLOY_TOKEN: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+    steps:
+      - name: Trigger caticat.github.io deployment
+        if: env.PAGES_DEPLOY_TOKEN != ''
+        run: |
+          curl --fail-with-body \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${PAGES_DEPLOY_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/caticat/caticat.github.io/dispatches \
+            --data '{"event_type":"deploy-live2d"}'
+
+      - name: Explain scheduled fallback
+        if: env.PAGES_DEPLOY_TOKEN == ''
+        run: echo "PAGES_DEPLOY_TOKEN is not configured; the hourly deployment schedule will sync this change."
